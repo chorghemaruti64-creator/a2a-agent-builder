@@ -6,365 +6,113 @@
 
 ---
 
-# 🤖 COMPLETE PROMPT FOR AI AGENTS
+# 🤖 AI AGENT BOOTSTRAP PROMPT
 
-**⭐ Copy this entire section and use it directly in any AI agent. No modification needed.**
-
-This is a **complete, detailed, error-resistant prompt** for AI agents to implement A2A Protocol-compliant projects.
-
----
-
-## 🎯 Choose Your Task
-
-**IF BUILDING: Agent Server** → Agent Server Task below
-
-**IF BUILDING: Agent Client** → Agent Client Task below
-
-**IF BUILDING: Multi-Agent System** → Multi-Agent System Task below
-
-**IF BUILDING: Protocol Extension** → Protocol Extension Task below
-
----
-
-## MANDATORY PREREQUISITES
-
-Before starting, verify you have:
-
-```bash
-# 1. Python 3.10+
-python --version
-
-# 2. Virtual environment
-python -m venv venv
-source venv/bin/activate
-
-# 3. Clone A2A Protocol repository
-git clone https://github.com/chorghemaruti64-creator/a2a-protocol.git
-cd a2a-protocol
-
-# 4. Install A2A library
-pip install -e reference/
-
-# 5. Verify
-python -c "import a2a; print(f'A2A version: {a2a.__version__}')"
-
-# 6. Navigate to project directory
-cd reference
-```
-
-**If any step fails, STOP. Do not continue.**
-
----
-
-## 📚 REFERENCE DOCUMENTATION
-
-Keep these open while working:
-
-| Document | Location |
-|----------|----------|
-| **A2A Protocol Spec** | `spec/A2A_PROTOCOL_v1.md` |
-| **Agent Identity Spec** | `spec/AGENT_IDENTITY.md` |
-| **Security Model** | `spec/SECURITY_MODEL.md` |
-| **Integration Guide** | `reference/PROJECT_INTEGRATION_GUIDE.md` |
-| **Code Examples** | `reference/AI_AGENT_COMPLETE_PROMPT.md` |
-| **Working Code** | `reference/examples/` |
-| **Tests** | `reference/tests/` |
-
----
-
-## TASK: Agent Server
-
-### 🎯 Objective
-Build an A2A-compliant agent server that:
-- Generates unique DID-based identity
-- Listens for incoming handshakes
-- Handles intent requests
-- Returns JSON responses
-- Logs interactions
-
-### ✅ Requirements
-
-**Code Quality:**
-- [ ] PEP 8 compliant (use `black`)
-- [ ] 100% type hints on public functions
-- [ ] Comprehensive docstrings
-- [ ] Error handling for ALL paths
-- [ ] Async/await for I/O
-
-**Functionality:**
-- [ ] Uses `a2a-protocol>=1.0.0`
-- [ ] JWS signature verification
-- [ ] Ed25519 key generation
-- [ ] TLS 1.3 configured (production)
-- [ ] 2+ custom intents
-- [ ] Proper error responses
-
-**Testing:**
-- [ ] Unit tests for all public functions
-- [ ] Integration tests for handshake
-- [ ] Intent handling tests
-- [ ] Error case tests
-- [ ] **80%+ code coverage (minimum)**
-
-**Documentation:**
-- [ ] README.md with examples
-- [ ] CONTRIBUTING.md with standards
-- [ ] Docstrings on every function
-- [ ] Comments on non-obvious code
-
-**Security:**
-- [ ] No hardcoded credentials
-- [ ] Secrets from environment
-- [ ] TLS documented
-- [ ] No insecure defaults
-
-### 📂 Exact Project Structure
+**Copy this prompt and use it directly in any AI agent:**
 
 ```
-my-a2a-server/
-├── src/
-│   └── my_server/
-│       ├── __init__.py
-│       ├── agent.py              # Main class
-│       ├── identity.py           # DID management
-│       ├── intents/
-│       │   ├── __init__.py
-│       │   ├── echo.py
-│       │   └── process.py
-│       └── errors.py
-├── tests/
-│   ├── unit/
-│   │   ├── test_agent.py
-│   │   └── test_identity.py
-│   └── integration/
-│       └── test_e2e.py
-├── README.md
-├── CONTRIBUTING.md
-├── LICENSE
-├── requirements.txt
-└── setup.py
-```
+You are an AI assistant building A2A Protocol agents.
 
-### 📝 10-Step Process
+TASK: Implement an A2A-compliant agent [choose: Server / Client / Multi-Agent System / Protocol Extension]
 
-**Step 1 (30 min):** Read specification
-- spec/A2A_PROTOCOL_v1.md sections 1-6
-- spec/AGENT_IDENTITY.md
-- reference/PROJECT_INTEGRATION_GUIDE.md Phase 2
+QUICK START:
+1. Clone: git clone https://github.com/chorghemaruti64-creator/a2a-protocol.git
+2. Install: cd a2a-protocol && pip install -e reference/
+3. Read: reference/AI_AGENT_COMPLETE_PROMPT.md (has all code examples + step-by-step guide)
 
-**Step 2 (15 min):** Create project structure
-```bash
-mkdir -p my-a2a-server/{src/my_server/intents,tests/{unit,integration}}
-# ... create __init__.py files
-```
+KEY FACTS:
+- A2A Protocol: Decentralized agent communication with DIDs, JWS signatures, TLS 1.3
+- Python 3.10+ required
+- Test coverage 80%+ required
+- All code documented with docstrings and type hints
+- Use a2a-protocol>=1.0.0 library
 
-**Step 3 (10 min):** Install dependencies
-```
-a2a-protocol>=1.0.0
-pydantic>=2.0.0
-httpx>=0.25.0
-aiohttp>=3.9.0
-pytest>=7.0.0
-pytest-asyncio>=0.21.0
-pytest-cov>=4.0.0
-```
+SPECIFICATION (READ FIRST):
+- spec/A2A_PROTOCOL_v1.md (protocol definition)
+- spec/AGENT_IDENTITY.md (DID and manifest format)
+- spec/SECURITY_MODEL.md (threat model)
 
-**Step 4-8 (6-8 hours):** Implement code
-- Implement identity management
-- Implement main server class
-- Implement intent handlers
-- Write unit tests
-- Write integration tests
+IMPLEMENTATION GUIDE:
+👉 Read: reference/AI_AGENT_COMPLETE_PROMPT.md
+   This has EVERYTHING:
+   - 10-step implementation process for each task type
+   - Complete code examples (identity, server, client, tests)
+   - Exact project structure
+   - Testing requirements
+   - Debugging & troubleshooting
+   - Final verification checklist
+   - Ready-to-submit instructions
 
-**Step 9 (1 hour):** Add documentation
-- README.md template
-- CONTRIBUTING.md template
-- API documentation
+DELIVERABLES:
+1. Source code (PEP 8, type hints, docstrings)
+2. Tests (unit + integration, 80%+ coverage)
+3. README.md (examples + quick start)
+4. CONTRIBUTING.md (code standards)
+5. LICENSE (MIT)
 
-**Step 10 (30 min):** Verify and test
-```bash
-pytest tests/ -v --cov=src
-black src/ tests/
-mypy src/
-flake8 src/ tests/
-```
+START BY:
+1. Reading reference/AI_AGENT_COMPLETE_PROMPT.md
+2. Choose your task type
+3. Follow the 10-step guide with code examples
+4. Implement + test
+5. Submit PR to https://github.com/chorghemaruti64-creator/a2a-protocol
 
-**See reference/AI_AGENT_COMPLETE_PROMPT.md for complete code examples for all steps.**
-
-### ✅ Verification Checklist
-
-- [ ] All tests pass
-- [ ] Coverage >= 80%
-- [ ] Code formatted with black
-- [ ] Type checking passes
-- [ ] Linting clean
-- [ ] README complete
-- [ ] CONTRIBUTING.md exists
-- [ ] LICENSE exists
-- [ ] Server starts without errors
-- [ ] 2+ intents implemented
-- [ ] Integration tests pass
-- [ ] No hardcoded secrets
-- [ ] Error handling comprehensive
-
----
-
-## TASK: Agent Client
-
-### 🎯 Objective
-Build an A2A-compliant client that:
-- Creates DID-based identity
-- Discovers and connects to agents
-- Performs handshake
-- Sends intent requests
-- Validates responses
-
-### 📝 Process
-Follow the same 10-step process as Agent Server with differences:
-- Client INITIATES connections (doesn't listen)
-- Uses `ClientHandshakeFSM` (not ServerHandshakeFSM)
-- Handle session caching
-- Implement discovery
-
-**Reference:** See `reference/examples/agent_client.py`
-
----
-
-## TASK: Multi-Agent System
-
-### 🎯 Objective
-Design and implement 3+ interconnected agents:
-- **Agent A:** Data Processor (intents: analyze_csv, compute_stats, filter_data)
-- **Agent B:** Translator (intents: translate, detect_language, supported_languages)
-- **Agent C:** Orchestrator (calls A & B, coordinates workflows)
-
-### Requirements
-- [ ] 3+ agents with unique DIDs
-- [ ] Each agent has 3+ intents
-- [ ] Agents call each other
-- [ ] PEP 8 compliant
-- [ ] 80%+ coverage
-- [ ] Architecture documented
-
-**Reference:** See `reference/tests/integration/test_e2e.py`
-
----
-
-## TASK: Protocol Extension
-
-### 🎯 Objective
-Extend A2A with new functionality (examples: gRPC transport, discovery, reputation).
-
-### Requirements
-- [ ] RFC-style specification
-- [ ] Python reference implementation
-- [ ] 85%+ test coverage
-- [ ] Backward compatibility verified
-- [ ] Security analysis
-
-### Submission
-1. Create SPEC.md
-2. Implement reference version
-3. Write tests
-4. Document security
-5. Create PR
-
----
-
-## 🔍 TROUBLESHOOTING
-
-| Problem | Solution |
-|---------|----------|
-| **ImportError: 'a2a'** | `pip install a2a-protocol>=1.0.0` |
-| **DID format invalid** | Use `create_did()` from library |
-| **Coverage < 80%** | `pytest --cov-report=html` and add tests |
-| **Handshake fails** | Check DIDs, signatures, nonces, clocks |
-| **Port in use** | `lsof -i :8000` then `kill -9 <PID>` |
-| **TLS certificate error** | Dev: `verify_tls=False` / Prod: generate certificate |
-
----
-
-## ✅ FINAL CHECKLIST
-
-**Code Quality:**
-- [ ] `black src/ tests/` passes
-- [ ] `mypy src/` clean
-- [ ] `flake8 src/ tests/` clean
-- [ ] All functions documented
-- [ ] Type hints on all public functions
-- [ ] No hardcoded credentials
-- [ ] No TODO/FIXME comments
-
-**Testing:**
-- [ ] `pytest tests/ -v` all pass
-- [ ] Coverage >= 80%
-- [ ] Unit tests for all public functions
-- [ ] Integration tests present
-- [ ] Error cases tested
-
-**Documentation:**
-- [ ] README.md complete
-- [ ] CONTRIBUTING.md present
-- [ ] LICENSE present (MIT recommended)
-- [ ] requirements.txt updated
-- [ ] setup.py configured
-- [ ] All code in English
-
-**A2A Compliance:**
-- [ ] Uses `a2a-protocol>=1.0.0`
-- [ ] DIDs correctly implemented
-- [ ] JWS signatures present
-- [ ] TLS configuration present
-- [ ] Session management implemented
-- [ ] Error handling per spec
-- [ ] Audit logging present
-
----
-
-## 🚀 READY TO SUBMIT?
-
-```bash
-# Final verification
-pytest tests/ -v --cov=src
-black src/ tests/
-mypy src/
-flake8 src/ tests/
-
-# Commit
-git add -A
-git commit -m "Complete A2A implementation with full tests and docs"
-
-# Push
-git push origin main
-
-# Create PR to https://github.com/chorghemaruti64-creator/a2a-protocol
+REFERENCES:
+- Full prompt: reference/AI_AGENT_COMPLETE_PROMPT.md
+- Integration guide: reference/PROJECT_INTEGRATION_GUIDE.md
+- Examples: reference/examples/
+- Tests: reference/tests/
+- Specification: spec/
 ```
 
 ---
 
-## 📞 SUPPORT
+# 🚀 Quick Start
 
-**Repository:** https://github.com/chorghemaruti64-creator/a2a-protocol
+## For AI Agents
 
-**Key References:**
-- `spec/A2A_PROTOCOL_v1.md` — Protocol specification
-- `spec/AGENT_IDENTITY.md` — Identity and DID format
-- `reference/PROJECT_INTEGRATION_GUIDE.md` — Full integration guide
-- `reference/AI_AGENT_COMPLETE_PROMPT.md` — Complete code examples
-- `reference/examples/` — Working code samples
-- `reference/tests/` — Test patterns
+👉 **Use the bootstrap prompt above. It will guide you to the complete implementation prompt.**
+
+The complete prompt (`reference/AI_AGENT_COMPLETE_PROMPT.md`) includes:
+- All 4 task types (Agent Server, Client, Multi-Agent, Extension)
+- 10-step implementation process with code examples
+- Complete code for identity, server, client, tests
+- Debugging and troubleshooting guide
+- Final verification checklist
+
+## For Reference Implementers
+
+1. Clone: `git clone https://github.com/chorghemaruti64-creator/a2a-protocol.git`
+2. Install: `cd a2a-protocol && pip install -e reference/`
+3. Read: `reference/AI_AGENT_COMPLETE_PROMPT.md`
+4. Run tests: `pytest tests/ -v`
+5. Study: `reference/examples/`
+
+## For Protocol Engineers
+
+Read in order:
+1. `spec/A2A_PROTOCOL_v1.md` — Protocol definition
+2. `spec/AGENT_IDENTITY.md` — Identity format
+3. `spec/SECURITY_MODEL.md` — Trust model
+4. `docs/ARCHITECTURE.md` — Layered design
 
 ---
 
-**END OF COMPLETE PROMPT**
+# 📚 Key Documentation
 
-**Version:** 1.0.0  
-**Status:** Production Ready  
-**Language:** 100% English
+| Document | Purpose |
+|----------|---------|
+| **AI_AGENT_COMPLETE_PROMPT.md** | ⭐ **START HERE** - Complete implementation guide with code examples |
+| **PROJECT_INTEGRATION_GUIDE.md** | 5-phase integration guide for new projects |
+| **A2A_PROTOCOL_v1.md** | Formal protocol specification |
+| **AGENT_IDENTITY.md** | DID and manifest specification |
+| **SECURITY_MODEL.md** | Threat analysis and security model |
+| **examples/** | Working code examples |
+| **tests/** | Test patterns and fixtures |
 
 ---
 
-# WHAT THIS IS
+# What This Is
 
 A2A is a **formal protocol specification and reference implementation for agent-to-agent communication**. It defines:
 
@@ -379,31 +127,107 @@ Think of it as **the HTTP/TLS/DNS for AI agents** — foundational infrastructur
 
 ---
 
-# QUICK START
+# Architecture
 
-## For Reference Implementers
-
-1. `git clone https://github.com/chorghemaruti64-creator/a2a-protocol.git`
-2. `cd a2a-protocol/reference && pip install -e .`
-3. Run tests: `pytest tests/ -v`
-4. Study: `reference/examples/simple_agent.py`
-
-## For Protocol Engineers
-
-Read in order:
-1. `spec/A2A_PROTOCOL_v1.md` — Protocol definition
-2. `spec/AGENT_IDENTITY.md` — Identity format
-3. `spec/SECURITY_MODEL.md` — Trust model
-4. `docs/ARCHITECTURE.md` — Layered design
+```
+┌──────────────────────────────────────────────────┐
+│ Application Layer                                │
+│ (Agent implementation, business logic)           │
+└──────────────────┬───────────────────────────────┘
+                   │
+┌──────────────────▼───────────────────────────────┐
+│ A2A Protocol Layer                               │
+│ ├─ Identity (DIDs, manifests, credentials)      │
+│ ├─ Discovery (DID resolution, manifest fetching)│
+│ ├─ Handshake (authentication, policy exchange)  │
+│ ├─ Session (lifecycle, state machine)           │
+│ └─ Policy (enforcement, rate limiting)          │
+└──────────────────┬───────────────────────────────┘
+                   │
+┌──────────────────▼───────────────────────────────┐
+│ Transport Abstraction Layer (TAL)                │
+│ (pluggable: HTTP/gRPC/WebSocket/custom)         │
+└──────────────────┬───────────────────────────────┘
+                   │
+┌──────────────────▼───────────────────────────────┐
+│ Network Layer (TLS 1.3 required)                 │
+│ (encryption, confidentiality, integrity)        │
+└──────────────────────────────────────────────────┘
+```
 
 ---
 
-# 📚 Documentation
+# Handshake Protocol
 
-- **[PROJECT_INTEGRATION_GUIDE.md](reference/PROJECT_INTEGRATION_GUIDE.md)** - Complete integration guide (5 phases)
-- **[AI_AGENT_COMPLETE_PROMPT.md](reference/AI_AGENT_COMPLETE_PROMPT.md)** - Full code examples for all task types
-- **[SECURITY.md](SECURITY.md)** - Security policy and best practices
-- **[DEPLOYMENT.md](docs/DEPLOYMENT.md)** - Production deployment guide
+```
+Client                                     Server
+  │                                          │
+  ├─ 1. HELLO (identity, nonce) ────────────→
+  │                                          │
+  │ ←─ 2. CHALLENGE (nonce, pubkey) ────────┤
+  │                                          │
+  ├─ 3. PROOF (signed nonces) ───────────────→
+  │                                          │
+  │ ←─ 4. POLICY (binding agreement) ───────┤
+  │                                          │
+  ├─ 5. ACCEPT_POLICY (acknowledge) ────────→
+  │                                          │
+  │ ←─ 6. SESSION (session_id, expiry) ─────┤
+  │                                          │
+  | ════ SESSION ESTABLISHED ════════════════|
+  │                                          │
+  ├─ INTENT (goal, params, signature) ──────→
+  │                                          │
+  │ ←─ RESULT (response, audit) ────────────┤
+```
+
+---
+
+# Testing
+
+```bash
+# Run all tests
+pytest tests/ -v
+
+# Run with coverage
+pytest tests/ --cov=a2a --cov-report=html
+
+# Run specific phase
+pytest tests/unit/test_crypto.py -v
+pytest tests/integration/test_e2e.py -v
+```
+
+**Test Summary:**
+- 178+ tests across all phases
+- Unit tests for each component
+- Integration tests for end-to-end scenarios
+- Security tests for all threats
+
+---
+
+# Security
+
+⚠️ **Read SECURITY.md before deploying to production.**
+
+Key security features:
+- **TLS 1.3** required (not optional)
+- **Ed25519** signatures (JWS RFC 7515)
+- **DID-based** identity (verifiable, decentralized)
+- **Manifest** signing (agent credentials)
+- **Session** commitment binding (prevents hijacking)
+- **Nonce** replay prevention
+- **Rate limiting** per-client and per-session
+- **Audit logging** (immutable interaction history)
+- **Policy enforcement** (capabilities, constraints)
+
+---
+
+# Contributing
+
+1. **Protocol changes:** Submit RFC pull request in `/spec`
+2. **Implementation:** Contribute to `/reference` or write your own
+3. **Issues:** Use GitHub Issues for bugs or feature requests
+4. **Code standards:** See CONTRIBUTING.md
 
 ---
 
@@ -411,8 +235,14 @@ Read in order:
 
 - **GitHub:** https://github.com/chorghemaruti64-creator/a2a-protocol
 - **Issues:** https://github.com/chorghemaruti64-creator/a2a-protocol/issues
+- **Reference Implementation:** `/reference`
+- **Specification:** `/spec`
+- **Documentation:** `/docs`
 
 ---
 
 **Status:** ✅ Production Ready (v1.0.0)
+
 **Last Updated:** February 2026
+
+**Security Reviewed:** Yes
