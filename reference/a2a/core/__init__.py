@@ -1,2 +1,41 @@
-\"\"\"A2A Core — Foundational types and utilities.\"\"\"\n\nfrom a2a.core.identity import (\n    DID,\n    DIDMethod,\n    KeyPair,\n    PublicKey,\n    AgentManifest,\n    AgentIdentity,\n    Agent,\n)\nfrom a2a.core.errors import (\n    A2AError,\n    ErrorCode,\n    UnverifiedAgentError,\n    InvalidManifestError,\n    PolicyError,\n    RateLimitError,\n    HandshakeError,\n    SessionExpiredError,\n    TimeoutError,\n    ServiceUnavailableError,\n)\n\n__all__ = [\n    \"DID\",\n    \"DIDMethod\",\n    \"KeyPair\",\n    \"PublicKey\",\n    \"AgentManifest\",\n    \"AgentIdentity\",\n    \"Agent\",\n    \"A2AError\",\n    \"ErrorCode\",\n    \"UnverifiedAgentError\",\n    \"InvalidManifestError\",\n    \"PolicyError\",\n    \"RateLimitError\",\n    \"HandshakeError\",\n    \"SessionExpiredError\",\n    \"TimeoutError\",\n    \"ServiceUnavailableError\",\n]\n"
-</invoke>
+"""A2A Core — Foundational types and utilities."""
+
+from a2a.core.identity import (
+    DID,
+    DIDMethod,
+    PublicKey,
+    AgentManifest,
+    AgentIdentity,
+    Agent,
+)
+from a2a.core.errors import (
+    A2AError,
+    ErrorCode,
+    UnverifiedAgentError,
+    InvalidManifestError,
+    PolicyError,
+    RateLimitError,
+    HandshakeError,
+    SessionExpiredError,
+    TimeoutError,
+    ServiceUnavailableError,
+)
+
+__all__ = [
+    "DID",
+    "DIDMethod",
+    "PublicKey",
+    "AgentManifest",
+    "AgentIdentity",
+    "Agent",
+    "A2AError",
+    "ErrorCode",
+    "UnverifiedAgentError",
+    "InvalidManifestError",
+    "PolicyError",
+    "RateLimitError",
+    "HandshakeError",
+    "SessionExpiredError",
+    "TimeoutError",
+    "ServiceUnavailableError",
+]
